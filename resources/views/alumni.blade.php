@@ -21,6 +21,8 @@
                 </ul>
             </div>
         @endif
+
+
     <form method="post" action="/" novalidate>
         @csrf
         <h1>CSULB Alumni Membership Form</h1>
@@ -34,15 +36,15 @@
     <div class="form-group">
 
         <label for="firstName">*First Name:</label>
-        <input type="text" name="firstName" id="firstName" class="form-control" required />
+        <input type="text" name="firstName" id="firstName" class="form-control" value="{{old('firstName')}}" required />
     </div>
     <div class="form-group">
         <label for="middleName">Middle Name:</label>
-        <input type="text" name="middleName" id="middleName" class="form-control" />
+        <input type="text" name="middleName" id="middleName" class="form-control" value="{{old('middleName')}}" />
     </div>
         <div class="form-group">
             <label for="lastName">*Last Name:</label>
-            <input type="text" name="lastName" id="lastName" class="form-control" required>
+            <input type="text" name="lastName" id="lastName" class="form-control" value="{{old('lastName')}}" required>
         </div>
         <div class="form-group">
             <label for="pronouns">Pronouns:</label>
@@ -54,11 +56,11 @@
         </div>
         <div class="form-group">
             <label for="nameWhileAtCSULB">Name while attending CSULB if different:</label>
-            <input type="text" name="nameWhileAtCSULB" id="nameWhileAtCSULB" class="form-control" />
+            <input type="text" name="nameWhileAtCSULB" id="nameWhileAtCSULB" class="form-control"  value="{{old('nameWhileAtCSULB')}}"/>
         </div>
         <div class="form-group">
             <label for="alumniEmail">*Email:</label>
-            <input type="email" name="alumniEmail" id="alumniEmail" class="form-control" required />
+            <input type="email" name="alumniEmail" id="alumniEmail" class="form-control" value="{{old('alumniEmail')}}" required  />
         </div>
         <div class="form-group">
             <label for="affiliation">*Affiliation:</label>
@@ -221,18 +223,18 @@
             <div class="form-group"><label for="checkBox">Opportunities to connect and get involved at The Beach. I am interested in receiving more information on:</label>
             </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" name="" id="" class="form-check-input">
+                    <input type="checkbox" name="opportunities[]" id="" class="form-check-input">
                     <label>Sharing my expertise and being a guest speaker</label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" name="" id="" class="form-check-input">
+                    <input type="checkbox" name="opportunities[]" id="" class="form-check-input">
                     <label for="">Receiving information on mentoring on Beach Nexus</label>
                 </div>
                     <div class="form-group form-check">
-                    <label for=""><input type="checkbox" name="" id="" class="form-check-input">Provide Internships</label>
+                    <label for=""><input type="checkbox" name="opportunities[]" id="" class="form-check-input">Provide Internships</label>
                     </div>
                         <div class="form-group form-check">
-                    <label for=""><input type="checkbox" name="" id="" class="form-check-input">Making a gift to CSULB</label>
+                    <label for=""><input type="checkbox" name="opportunities[]" id="" class="form-check-input">Making a gift to CSULB</label>
                 </div>
 
         </fielset>

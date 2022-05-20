@@ -60,12 +60,42 @@ class AlumniController extends Controller
             $alumni = new Alumni;
 
             $alumni->firstName = $request->input('firstName');
-
-
+            $alumni->middleName = $request->input('middleName');
+            $alumni->lastName = $request->input('lastName');
+            $alumni->pronouns = $request->input('pronouns');
+            $alumni->nameWhileAttending  = $request->input('nameWhileAtCSULB');
+            $alumni->alumniEmail = $request->input('alumniEmail');
+            $alumni->affiliation = $request->input('affiliation');
+            $alumni->gradYear = $request->input('gradYear');
+            $alumni->degreeType = $request->input('degreeType');
+            $alumni->major = $request->input('major');
+            $alumni->beachFamilyMember = $request->input('familyMember');
+            $alumni->beachName = $request->input('names');
+            $alumni->homePhone = $request->input('homePhone');
+            $alumni->cellPhone = $request->input('cellPhone');
+            $alumni->streetAddressOne = $request->input('streetAddressOne');
+            $alumni->streetAddressTwo = $request->input('streetAddressTwo');
+            $alumni->city = $request->input('city');
+            $alumni->state = $request->input('state');
+            $alumni->zip =  $request->input('zip');
+            $alumni->country = $request->input('country');
+            $alumni->linkedInProfile = $request->input('linkedInProfile');
+            $alumni->facebookProfile = $request->input('facebookProfile');
+            $alumni->twitterProfile = $request->input('twitterProfile');
+            $alumni->instagramProfile = $request->input('instagramProfile');
+            $alumni->businessEmployer = $request->input('businessEmployer');
+            $alumni->jobTitle = $request->input('jobTitle');
+            $alumni->businessPhoneNumber = $request->input('businessPhoneNumber');
+            $alumni->businessEmail = $request->input('businessEmail');
+            $alumni->businessAddress = $request->input('businessAddress');
+            $alumni->opportunities = $request->input('opportunities');
+            $alumni->membershipToken = rand(0,100000);
             $alumni->save();
 
+             return view('alumni-success')->with('message', 'IT WORKS!');
+
         }
-        echo "I got here";
+
     }
 
     /**
