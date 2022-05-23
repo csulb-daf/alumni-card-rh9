@@ -58,6 +58,9 @@ class AlumniController extends Controller
         else
         {
             $alumni = new Alumni;
+           $opportun=  implode(',',$request->input('opportunities'));
+
+
 
             $alumni->firstName = $request->input('firstName');
             $alumni->middleName = $request->input('middleName');
@@ -88,7 +91,7 @@ class AlumniController extends Controller
             $alumni->businessPhoneNumber = $request->input('businessPhoneNumber');
             $alumni->businessEmail = $request->input('businessEmail');
             $alumni->businessAddress = $request->input('businessAddress');
-            $alumni->opportunities = $request->input('opportunities');
+            $alumni->opportunities = $opportun;
             $alumni->membershipToken = rand(0,100000);
             $alumni->save();
 

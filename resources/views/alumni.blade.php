@@ -1,3 +1,13 @@
+<?php
+
+$pronouns = config('global.pronouns');
+$affiliations = config('global.affiliations');
+$degreeTypes = config('global.degreeTypes');
+$states = config('global.states');
+$familyMembers = config('global.familyMembers');
+
+
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -49,9 +59,15 @@
         <div class="form-group">
             <label for="pronouns">Pronouns:</label>
             <select name="pronouns" id="pronouns" class="form-control">
-                <option value="He/Him/His">He/Him/His</option>
-                <option value="She/Her/Hers">She/Her/Hers</option>
-                <option value="They/Them/Theirs">They/Them/Theirs</option>
+            @isset($pronouns)
+                    @foreach ($pronouns as $pronoun)
+                        @if(old('pronouns') == $pronoun)
+                            <option value="{{$pronoun}}" selected>{{$pronoun}}</option>
+                            @else
+                        <option value="{{$pronoun}}">{{$pronoun}}</option>
+                        @endif
+                    @endforeach
+            @endisset
             </select>
         </div>
         <div class="form-group">
@@ -65,144 +81,124 @@
         <div class="form-group">
             <label for="affiliation">*Affiliation:</label>
             <select name="affiliation" id="affiliation" class="form-control" required >
-                <option value="Alumni">Alumni</option>
-                <option value="Student">Student</option>
-                <option value="Friend">Friend</option>
+                @isset($affiliations)
+                    @foreach ($affiliations as $aff)
+                        @if(old('affiliation') == $aff)
+                            <option value="{{$aff}}" selected>{{$aff}}</option>
+                        @else
+                            <option value="{{$aff}}">{{$aff}}</option>
+                        @endif
+                    @endforeach
+                @endisset
             </select>
         </div>
         <div class="form-group">
             <label for="gradyear">Grad Year:</label>
-            <input type="text" name="gradYear" id="gradYear" class="form-control" />
+            <input type="text" name="gradYear" id="gradYear" class="form-control" value="{{old('gradYear')}}" />
         </div>
         <div class="form-group">
             <label for="degreeType">Degree Type</label>
             <select name="degreeType" id="degreeType" class="form-control">
-                <option value="BA">BA</option>
-                <option value="MA">MA</option>
+                @isset($degreeTypes)
+                    @foreach ($degreeTypes as $dt)
+                        @if(old('degreeType') == $dt)
+                            <option value="{{$dt}}" selected>{{$dt}}</option>
+                        @else
+                            <option value="{{$dt}}">{{$dt}}</option>
+                        @endif
+                    @endforeach
+                @endisset
             </select>
         </div>
         <div class="form-group">
             <label for="major">Major</label>
-            <input type="text" name="major" id="major" class="form-control">
+            <input type="text" name="major" id="major" class="form-control" value="{{old('major')}}">
         </div>
         <div class="form-group">
             <label for="familyMember">Beach Family members</label>
-            <input type="text" name="familyMember" id="familyMember" class="form-control">
-
+            <select name="familyMember" id="familyMember" class="form-control" required>
+                @isset($familyMembers)
+                    @foreach ($familyMembers as $member)
+                        @if(old('familyMember') == $member  )
+                            <option value="{{$member}}" selected>{{$member}}</option>
+                        @else
+                            <option value="{{$member}}">{{$member}}</option>
+                        @endif
+                    @endforeach
+                @endisset
+            </select>
 
         </div>
 
         <div class="form-group">
             <label for="names">Names:</label>
-            <input type="text" name="names" id="names" class="form-control" />
+            <input type="text" name="names" id="names" class="form-control" value="{{old('names')}}" />
         </div>
         </fieldset>
         <fieldset class="Contact Information">
             <legend >Contact Information</legend>
         <div class="form-group">
             <label for="homePhone">Home Phone</label>
-            <input type="tel" name="homePhone" id="homePhone" class="form-control" />
+            <input type="tel" name="homePhone" id="homePhone" class="form-control" value="{{old('homePhone')}}" />
         </div>
 
         <div class="form-group">
             <label for="cellPhone">*Cell Phone</label>
-            <input type="tel" name="cellPhone" id="cellPhone" class="form-control" required/>
+            <input type="tel" name="cellPhone" id="cellPhone" class="form-control" value="{{old('cellPhone')}}" required/>
         </div>
 
         <div class="form-group">
             <label for="streetAddressOne">*Street Address Line 1</label>
-            <input type="text" name="streetAddressOne" id="streetAddressOne" class="form-control" required />
+            <input type="text" name="streetAddressOne" id="streetAddressOne" class="form-control" value="{{old('streetAddressOne')}}"required />
         </div>
 
         <div class="form-group">
             <label for="streetAddresTwo">Street Address Line 2</label>
-            <input type="text" name="streetAddressTwo" id="streetAddressTwo" class="form-control" />
+            <input type="text" name="streetAddressTwo" id="streetAddressTwo" class="form-control" value="{{old('streetAddressTwo')}}" />
         </div>
 
             <div class="form-group">
                 <label for="city">*City</label>
-                <input type="text" name="city" id="city" class="form-control" required />
+                <input type="text" name="city" id="city" class="form-control" value="{{old('city')}}" required />
             </div>
             <div class="form-group">
                 <label for="state">*State</label>
                 <select name="state" id="state" class="form-control" required>
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="DC">District Of Columbia</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
+                    @isset($states)
+                        @foreach ($states as $stateAbrev => $stateName)
+                            @if(old('state') == $stateAbrev  )
+                                <option value="{{$stateAbrev}}" selected>{{$stateName}}</option>
+                            @else
+                                <option value="{{$stateAbrev}}">{{$stateName}}</option>
+                            @endif
+                        @endforeach
+                    @endisset
 
                 </select>
             </div>
             <div class="form-group">
                 <label for="zip">*Zip</label>
-            <input type="text" name="zip" id="zip" class="form-control" required />
+            <input type="text" name="zip" id="zip" class="form-control" value="{{old('zip')}}" required />
             </div>
             <div class="form-group">
                 <label for="country">Country</label>
-                <input type="text" name="country" id="country" class="form-control" />
+                <input type="text" name="country" id="country" class="form-control" value="{{old('country')}}" />
             </div>
 
             <div class="form-group">
                 <label for="linkedInProfile">LinkedIn Profile</label>
-                <input type="text" name="linkedInProfile" id="linkedInProfile" class="form-control">
+                <input type="text" name="linkedInProfile" id="linkedInProfile" class="form-control" value="{{old('linkedInProfile')}}">
             </div>
 
             <div class="form-group"><label for="facebookProfile">Facebook Profile</label>
-                <input type="text" name="facebookProfile" id="facebookProfile" class="form-control"></div>
+                <input type="text" name="facebookProfile" id="facebookProfile" class="form-control" value="{{old('facebookProfile')}}" ></div>
 
             <div class="form-group"><label for="twitterProfile">Twitter Profile</label>
-                <input type="text" name="twitterProfile" id="twitterProfile" class="form-control">
+                <input type="text" name="twitterProfile" id="twitterProfile" class="form-control" value="{{old('twitterProfile')}}">
             </div>
 
             <div class="form-group"><label for="instagramProfile">Instagram Profile</label>
-                <input type="text" name="instagramProfile" id="instagramProfile" class="form-control">
+                <input type="text" name="instagramProfile" id="instagramProfile" class="form-control" value="{{old('instagramProfile')}}">
             </div>
 
         </fieldset>
@@ -210,31 +206,31 @@
 
             <legend>Business Information</legend>
             <div class="form-group"><label for="businessEmployer">Employer</label>
-                <input type="text" name="businessEmployee" id="businessEmployer" class="form-control"></div>
+                <input type="text" name="businessEmployer" id="businessEmployer" class="form-control" value="{{old('businessEmployer')}}"></div>
 
             <div class="form-group"><label for="jobTitle">Job Title</label>
-                <input type="text" name="jobTitle" id="jobTitle" class="form-control"></div>
+                <input type="text" name="jobTitle" id="jobTitle" class="form-control" value="{{old('jobTitle')}}"></div>
             <div class="form-group"><label for="businessPhoneNumber">Business Phone</label>
-                <input type="text" name="businessPhoneNumber" id="businessPhoneNumber" class="form-control"></div>
+                <input type="text" name="businessPhoneNumber" id="businessPhoneNumber" class="form-control" value="{{old('businessPhoneNumber')}}"></div>
             <div class="form-group"><label for="businessEmail">Business Email</label>
-                <input type="text" name="businessEmail" id="businessEmail" class="form-control"></div>
+                <input type="email" name="businessEmail" id="businessEmail" class="form-control" value="{{old('businessEmail')}}"></div>
             <div class="form-group"><label for="businessAddress">Business Address</label>
-                <input type="text" name="businessAddress" id="businessAddress" class="form-control"></div>
+                <input type="text" name="businessAddress" id="businessAddress" class="form-control" value="{{old('businessAddress')}}"></div>
             <div class="form-group"><label for="checkBox">Opportunities to connect and get involved at The Beach. I am interested in receiving more information on:</label>
             </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" name="opportunities[]" id="" class="form-check-input">
-                    <label>Sharing my expertise and being a guest speaker</label>
+                    <input type="checkbox" name="opportunities[]" id="opportunityChkBox1" class="form-check-input" value="Sharing my expertise and being a guest speaker">
+                    <label for="opportunityChkBox1">Sharing my expertise and being a guest speaker</label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" name="opportunities[]" id="" class="form-check-input">
-                    <label for="">Receiving information on mentoring on Beach Nexus</label>
+                    <input type="checkbox" name="opportunities[]" id="opportunityChkBox2" class="form-check-input" value="Receiving information on mentoring on Beach Nexus">
+                    <label for="opportunityChkBox2">Receiving information on mentoring on Beach Nexus</label>
                 </div>
                     <div class="form-group form-check">
-                    <label for=""><input type="checkbox" name="opportunities[]" id="" class="form-check-input">Provide Internships</label>
+                    <label for="opportunityChkBox3"><input type="checkbox" name="opportunities[]" id="opportunityChkBox3" class="form-check-input" value="Provide Internships">Provide Internships</label>
                     </div>
                         <div class="form-group form-check">
-                    <label for=""><input type="checkbox" name="opportunities[]" id="" class="form-check-input">Making a gift to CSULB</label>
+                    <label for="opportunityChkBox4"><input type="checkbox" name="opportunities[]" id="opportunityChkBox4" class="form-check-input" value="Making a gift to CSULB">Making a gift to CSULB</label>
                 </div>
 
         </fielset>
