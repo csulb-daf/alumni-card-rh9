@@ -46,6 +46,7 @@ class CreateAlumniTable extends Migration
             $table->string('businessEmail')->nullable();
             $table->string('businessAddress')->nullable();
             $table->string('opportunities')->nullable();
+            $table->string('digitalCardLink')->nullable();
             $table->timestamps();
         });
     }

@@ -13,3 +13,9 @@
 
 Route::resource('/', 'AlumniController');
 
+Route::get('/alumni', function () {
+
+    return view('alumni-success');
+    // ...
+});
+

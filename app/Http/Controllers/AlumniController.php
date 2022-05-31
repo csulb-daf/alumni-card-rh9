@@ -61,6 +61,31 @@ class AlumniController extends Controller
            $opportun=  implode(',',$request->input('opportunities'));
 
 
+            // Create Image From Existing File
+            $jpg_image = imagecreatefromjpeg('Membership-Card_2019-Front.jpg');
+
+// Allocate A Color For The Text
+            $white = imagecolorallocate($jpg_image, 255, 255, 255);
+
+// Set Path to Font File
+            $font_path = '/Users/stevereed/Sites/localhost/gradcard/public/Kanit-Bold.ttf';
+            $degree_font_path = '/Users/stevereed/Sites/localhost/gradcard/public/Kanit-ExtraLight.ttf';
+//echo "Font Path " . $font_path . "<br />";
+// Set Text to Be Printed On Image
+            $alumniText = "Steve Reed";
+            $degreeText = "BS 2007";
+            $studentIDText = "018825129";
+// Print Text On Image
+            imagettftext($jpg_image, 25, 0, 450, 395, $white, $font_path, $alumniText);
+            imagettftext($jpg_image, 25, 0, 450, 425, $white, $degree_font_path, $degreeText);
+            imagettftext($jpg_image, 25, 0, 540, 50, $white, $font_path, $studentIDText);
+// Send Image to Browser
+            $imageOffset = time();
+            $imageLink = 'testimage' . $imageOffset .'.jpg';
+            imagejpeg($jpg_image,$imageLink);
+
+// Clear Memory
+            imagedestroy($jpg_image);
 
             $alumni->firstName = $request->input('firstName');
             $alumni->middleName = $request->input('middleName');
@@ -91,11 +116,14 @@ class AlumniController extends Controller
             $alumni->businessPhoneNumber = $request->input('businessPhoneNumber');
             $alumni->businessEmail = $request->input('businessEmail');
             $alumni->businessAddress = $request->input('businessAddress');
+
+            $alumni->digitalCardLink = $imageLink;
             $alumni->opportunities = $opportun;
             $alumni->membershipToken = rand(0,100000);
             $alumni->save();
 
-             return view('alumni-success')->with('message', 'IT WORKS!');
+
+             return view('alumni-success')->with('message', 'IT WORKS!')->with('alumniImageLink', $imageLink);
 
         }
 

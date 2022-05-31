@@ -1,3 +1,11 @@
+<?php
+
+//header('Content-type: image/jpeg');
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -12,16 +20,13 @@
 </head>
 <body>
     <div class="container">
-
-
-
                 <div class="alert alert-success">
                   <p>You have been successfully complete your alumni card. </p>
-                    <img src="{{asset('Membership-Card_2019-Front.jpg')}}" alt="Membership Back" />
-                    <img src="{{asset('Membership_Card_2021_BACK_ FINAL.jpg')}}" alt="Membership Back" />
+
                 </div>
 
-
+        <img src="{{asset($alumniImageLink)}}" alt="Membership Back" />
+        <img src="{{asset('Membership_Card_2021_BACK_ FINAL.jpg')}}" alt="Membership Back" />
 
 
 </div>
