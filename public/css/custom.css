@@ -1,0 +1,46 @@
+#alumniForm{
+    max-width:700px;
+    background-color: #ffffff;
+    padding:2em;
+}
+.banner {
+    background-image: url("../img/banner_alumni.jpg");
+    background-size: cover;
+    height:400px;
+}
+
+
+#toptext{
+    font-size: 32px;
+    color:#ffffff;
+    text-align: center;
+    background-color: rgba(0,0,0,.7);
+    padding:1em;
+}
+body{
+    background-image: url("../img/zoombackgrounds_13.jpg");
+    background-color: rgba(255,255,255,.7);
+    background-blend-mode: overlay;
+
+}
+footer {
+    font-size: medium;
+    font-weight: normal;
+    color:#fff;
+    background-color: #424141;
+    height:55px;
+    padding:1em;
+
+}
+@media (max-width: 600px) {
+    .banner {
+        background-image: url("../img/banner_alumni.jpg");
+        height:300px;
+    }
+    #mh1 {
+        font-size: 1.5rem;
+    }
+}
+@media print {
+    img{width:100%;height:100%;}
+}

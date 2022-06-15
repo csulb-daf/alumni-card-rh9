@@ -40,15 +40,15 @@ class AlumniController extends Controller
         //
 
         $validator = Validator::make($request->all(), [
-            'firstName' => ['required'],
-            'lastName' => ['required'],
-            'alumniEmail' => ['required'],
-            'affiliation' => ['required'],
-            'cellPhone' => ['required'],
-            'streetAddressOne' => ['required'],
-            'city' => ['required'],
-            'state' => ['required'],
-            'zip' => ['required'],
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'alumniEmail' => 'required|unique:alumni',
+            'affiliation' => 'required',
+            'cellPhone' => 'required',
+            'streetAddressOne' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -58,27 +58,31 @@ class AlumniController extends Controller
         else
         {
             $alumni = new Alumni;
-           $opportun=  implode(',',$request->input('opportunities'));
+            $opportun=  ($request->input('opportunities') ? implode (',',$request->input('opportunities')): '');
 
 
             // Create Image From Existing File
-            $jpg_image = imagecreatefromjpeg('Membership-Card_2019-Front.jpg');
+            $jpg_image = imagecreatefromjpeg(base_path('/public/img').'/mcard_final.jpg');
 
 // Allocate A Color For The Text
             $white = imagecolorallocate($jpg_image, 255, 255, 255);
 
 // Set Path to Font File
-            $font_path = '/Users/stevereed/Sites/localhost/gradcard/public/Kanit-Bold.ttf';
-            $degree_font_path = '/Users/stevereed/Sites/localhost/gradcard/public/Kanit-ExtraLight.ttf';
+            $font_path = base_path(). '/public/Kanit-Bold.ttf';
+            $degree_font_path = base_path().'/public/Kanit-ExtraLight.ttf';
 //echo "Font Path " . $font_path . "<br />";
 // Set Text to Be Printed On Image
-            $alumniText = "Steve Reed";
-            $degreeText = "BS 2007";
-            $studentIDText = "018825129";
+            $alumniText = $request->input('firstName'). ' '. $request->input('lastName');
+            $degree = ($request->input('degreeType') ? $request->input('degreeType') : '');
+            $dyear = ($request->input('gradYear') ? $request->input('gradYear') : '');
+            $degreeText = $degree. " ".$dyear;
+            $stlen = strlen($alumniText);
+            $xpos = ($stlen < 10 ? 440 : 350);
+
 // Print Text On Image
-            imagettftext($jpg_image, 25, 0, 450, 395, $white, $font_path, $alumniText);
-            imagettftext($jpg_image, 25, 0, 450, 425, $white, $degree_font_path, $degreeText);
-            imagettftext($jpg_image, 25, 0, 540, 50, $white, $font_path, $studentIDText);
+            imagettftext($jpg_image, 18, 0, $xpos, 410, $white, $font_path, $alumniText);
+            imagettftext($jpg_image, 18, 0, $xpos, 435, $white, $degree_font_path, $degreeText);
+
 // Send Image to Browser
             $imageOffset = time();
             $imageLink = 'testimage' . $imageOffset .'.jpg';
