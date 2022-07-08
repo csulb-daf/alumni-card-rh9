@@ -13,6 +13,11 @@
 
 Route::resource('/', 'AlumniController');
 
+Route::get('/retrieve', function(){
+    return view('alumni-retrieve');
+});
+
+Route::post('/retrieve', 'AlumniController@retrieve');
 Route::get('/alumni', function () {
 
     return view('alumni-success');

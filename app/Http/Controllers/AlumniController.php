@@ -86,7 +86,7 @@ class AlumniController extends Controller
 // Send Image to Browser
             $imageOffset = time();
             $imageLink = 'testimage' . $imageOffset .'.jpg';
-            imagejpeg($jpg_image,$imageLink);
+            imagejpeg($jpg_image,$imageLink,100);
 
 // Clear Memory
             imagedestroy($jpg_image);
@@ -133,6 +133,15 @@ class AlumniController extends Controller
 
     }
 
+    public function retrieve(Request $request)
+    {
+        $alumniEmail = $request->input('alumniEmail');
+        echo "email is " . $alumniEmail ."<br />";
+
+        $alumniSection = Alumni::where('businessEmail', $alumniEmail)->first();
+
+        var_dump($alumniSection);
+    }
     /**
      * Display the specified resource.
      *
