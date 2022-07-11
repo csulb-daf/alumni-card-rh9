@@ -34,7 +34,7 @@ $familyMembers = config('global.familyMembers');
             </div>
         @endif
 
-    <form method="post" action="/" novalidate>
+    <form method="post" action="/alumni-card/" novalidate>
         @csrf
         <h2 id="mh1">CSULB Alumni Membership Form</h2>
         <div class="container">
