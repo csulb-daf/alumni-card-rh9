@@ -85,7 +85,7 @@ class AlumniController extends Controller
 
 // Send Image to Browser
             $imageOffset = time();
-            $imageLink = '/alumin-card/testimage' . $imageOffset .'.jpg';
+            $imageLink = '/alumni-card/testimage' . $imageOffset .'.jpg';
             imagejpeg($jpg_image,$imageLink,100);
 
 // Clear Memory
