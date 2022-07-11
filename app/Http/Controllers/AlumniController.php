@@ -62,7 +62,7 @@ class AlumniController extends Controller
 
 
             // Create Image From Existing File
-            $jpg_image = imagecreatefromjpeg(base_path('/public/img').'/mcard_final.jpg');
+            $jpg_image = imagecreatefromjpeg(base_path('/alumni-card/public/img').'/mcard_final.jpg');
 
 // Allocate A Color For The Text
             $white = imagecolorallocate($jpg_image, 255, 255, 255);
