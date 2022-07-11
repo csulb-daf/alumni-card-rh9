@@ -136,11 +136,25 @@ class AlumniController extends Controller
     public function retrieve(Request $request)
     {
         $alumniEmail = $request->input('alumniEmail');
-        echo "email is " . $alumniEmail ."<br />";
 
-        $alumniSection = Alumni::where('businessEmail', $alumniEmail)->first();
 
-        var_dump($alumniSection);
+        if(empty($alumniEmail))
+        {
+            return redirect()->back()->withErrors(['msg' => 'You must entered an alumni email.']);
+        }
+        else {
+
+            $alumniSection = Alumni::where('businessEmail', $alumniEmail)->first();
+
+           if($alumniSection != NULL) {
+               $digitalCardLink = $alumniSection->digitalCardLink;
+               return view('alumni-success')->with('message', 'IT WORKS!')->with('alumniImageLink', $digitalCardLink);
+           }
+           else
+           {
+               return redirect()->back()->withErrors(['msg' => 'You must entered a valid alumni email.']);
+           }
+        }
     }
     /**
      * Display the specified resource.
