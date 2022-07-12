@@ -150,7 +150,7 @@ class AlumniController extends Controller
         }
         else {
 
-            $alumniSection = Alumni::where('businessEmail', $alumniEmail)->first();
+            $alumniSection = Alumni::where('alumniEmail', $alumniEmail)->first();
 
            if($alumniSection != NULL) {
                $digitalCardLink = $alumniSection->digitalCardLink;
