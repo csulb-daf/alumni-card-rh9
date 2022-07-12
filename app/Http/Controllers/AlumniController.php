@@ -47,9 +47,11 @@ class AlumniController extends Controller
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
             'lastName' => 'required',
-            'alumniEmail' => 'required|unique:alumni',
+            'alumniEmail' => 'required|unique:alumni|email',
             'affiliation' => 'required',
-            'cellPhone' => 'required|new PhoneNumber',
+            'cellPhone' => 'required|digits:10',
+            'homePhone' =>'digits:10',
+            'businessPhoneNumber' => 'digits:10',
             'streetAddressOne' => 'required',
             'city' => 'required',
             'state' => 'required',
