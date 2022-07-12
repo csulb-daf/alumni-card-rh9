@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Alumni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Rules\PhoneNumber;
 
 class AlumniController extends Controller
 {
@@ -48,7 +49,7 @@ class AlumniController extends Controller
             'lastName' => 'required',
             'alumniEmail' => 'required|unique:alumni',
             'affiliation' => 'required',
-            'cellPhone' => 'required',
+            'cellPhone' => 'required|new PhoneNumber',
             'streetAddressOne' => 'required',
             'city' => 'required',
             'state' => 'required',
