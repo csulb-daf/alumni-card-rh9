@@ -168,7 +168,9 @@ $familyMembers = config('global.familyMembers');
                 <select name="state" id="state" class="form-control " required>
                     @isset($states)
                         @foreach ($states as $stateAbrev => $stateName)
-                            @if(old('state') == $stateAbrev  )
+                            @if(empty($_POST) && $stateAbrev == "CA")
+                                <option value="{{$stateAbrev}}" selected>{{$stateName}}</option>
+                            @elseif(old('state') == $stateAbrev  )
                                 <option value="{{$stateAbrev}}" selected>{{$stateName}}</option>
                             @else
                                 <option value="{{$stateAbrev}}">{{$stateName}}</option>
