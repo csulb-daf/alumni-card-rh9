@@ -44,6 +44,11 @@ class AlumniController extends Controller
             'alumniEmail.unique' => 'The alumni email has already been taken. If you wish to print another membership card, navigate to the <a href="/alumni-card/retrieve">Retrieve Card page.</a>',
         ];
 
+        $request->input('cellPhone') =preg_replace( '/[^0-9]/', '', $request->input('cellPhone') );
+            $request->input('homePhone') = preg_replace( '/[^0-9]/', '', $request->input('homePhone') );
+            $request->input('businessPhoneNumber') = preg_replace( '/[^0-9]/', '', $request->input('businessPhoneNumber') );
+
+
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
             'lastName' => 'required',
