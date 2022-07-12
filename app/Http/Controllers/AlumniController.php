@@ -94,8 +94,8 @@ class AlumniController extends Controller
             $xpos = ($stlen < 10 ? 440 : 350);
 
 // Print Text On Image
-            imagettftext($jpg_image, 18, 0, $xpos, 380, $white, $font_path, $alumniText);
-            imagettftext($jpg_image, 18, 0, $xpos, 405, $white, $degree_font_path, $degreeText);
+            imagettftext($jpg_image, 18, 0, $xpos, 390, $white, $font_path, $alumniText);
+            imagettftext($jpg_image, 18, 0, $xpos, 415, $white, $degree_font_path, $degreeText);
 
 // Send Image to Browser
             $imageOffset = time();
