@@ -40,7 +40,7 @@ class AlumniController extends Controller
         //
 
         $messages = [
-            'alumniEmail' => 'The alumni email has already been taken. If you wish to print another membership card, navigate to the <a href="/alumni-card/retrieve">Retrieve Card page.</a>',
+            'alumniEmail.required' => 'The alumni email has already been taken. If you wish to print another membership card, navigate to the <a href="/alumni-card/retrieve">Retrieve Card page.</a>',
         ];
 
         $validator = Validator::make($request->all(), [
