@@ -22,7 +22,7 @@
 <body>
     <div class="container">
                 <div class="alert alert-success d-print-none">
-                  <p>You have been successfully complete your alumni card. </p>
+                  <p>You have been successfully {{$message}} your alumni card. </p>
                     <a href="/alumni-card" class="btn btn-light">Return to Form</a>
                     <button class="btn btn-dark" onclick="window.print()">Print Membership Card</button>
                 </div>

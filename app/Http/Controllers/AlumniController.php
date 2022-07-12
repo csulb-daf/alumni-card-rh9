@@ -42,7 +42,7 @@ class AlumniController extends Controller
         $messages = [
             'alumniEmail' => 'The alumni email has already been taken. If you wish to print another membership card, navigate to the <a href="/alumni-card/retrieve">Retrieve Card page.</a>',
         ];
-        
+
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
             'lastName' => 'required',
@@ -133,7 +133,7 @@ class AlumniController extends Controller
             $alumni->save();
 
 
-             return view('alumni-success')->with('message', 'IT WORKS!')->with('alumniImageLink', $imageLink);
+             return view('alumni-success')->with('message', 'completed')->with('alumniImageLink', $imageLink);
 
         }
 
@@ -154,7 +154,7 @@ class AlumniController extends Controller
 
            if($alumniSection != NULL) {
                $digitalCardLink = $alumniSection->digitalCardLink;
-               return view('alumni-success')->with('message', 'IT WORKS!')->with('alumniImageLink', $digitalCardLink);
+               return view('alumni-success')->with('message', 'retrieved')->with('alumniImageLink', $digitalCardLink);
            }
            else
            {
