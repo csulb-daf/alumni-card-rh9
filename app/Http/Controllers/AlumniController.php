@@ -39,6 +39,10 @@ class AlumniController extends Controller
     {
         //
 
+        $messages = [
+            'alumniEmail' => 'The alumni email has already been taken. If you wish to print another membership card, navigate to the <a href="/alumni-card/retrieve">Retrieve Card page.</a>',
+        ];
+        
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
             'lastName' => 'required',
@@ -49,7 +53,9 @@ class AlumniController extends Controller
             'city' => 'required',
             'state' => 'required',
             'zip' => 'required',
-        ]);
+        ], $messages );
+
+
 
         if ($validator->fails()) {
 
@@ -140,7 +146,7 @@ class AlumniController extends Controller
 
         if(empty($alumniEmail))
         {
-            return redirect()->back()->withErrors(['msg' => 'You must entered an alumni email.']);
+            return redirect()->back()->withErrors(['msg' => 'You must enter an alumni email.']);
         }
         else {
 
@@ -152,7 +158,7 @@ class AlumniController extends Controller
            }
            else
            {
-               return redirect()->back()->withErrors(['msg' => 'You must entered a valid alumni email.']);
+               return redirect()->back()->withErrors(['msg' => 'The email provided did not return any records. If you wish to register for a membership card, please navigate to the <a href="/alumni-card/">alumni-card page</a> to fill out the form.']);
            }
         }
     }
