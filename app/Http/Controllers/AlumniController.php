@@ -55,15 +55,15 @@ class AlumniController extends Controller
             'alumniEmail' => 'required|unique:alumni|email',
             'affiliation' => 'required',
             'cellPhone' => 'required|regex:/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/',
-            'homePhone' =>'digits:10',
-            'businessPhoneNumber' => 'digits:10',
+
             'streetAddressOne' => 'required',
             'city' => 'required',
             'state' => 'required',
             'zip' => 'required|integer|digits:5',
         ], $messages );
 
-
+/*   'homePhone' =>'digits:10',
+            'businessPhoneNumber' => 'digits:10',*/
 
         if ($validator->fails()) {
 
