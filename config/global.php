@@ -3,9 +3,9 @@
 return [
 
     'pronouns' => ['He/Him/His','She/Her/Hers','They/Them/Theirs'],
-    'affiliations' =>['Alumni', 'Student', 'Friend'],
-    'degreeTypes' =>['BA','BS','MA','MS','Ph.D.'],
-    'familyMembers' =>['Child', 'Parent', 'Relative'],
+    'affiliations' =>['Alumni', 'Student', 'Community Member'],
+    'degreeTypes' =>['BA','BFA','BM','BS','MA','MFA', 'MPA','MS','Ph.D.'],
+    'familyMembers' =>['N/A','Child', 'Parent', 'Spouse', 'Relative'],
     'states' => ['AL' => 'Alabama',
         'AK' => 'Alaska',
         'AZ' => 'Arizona',

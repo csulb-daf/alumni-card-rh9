@@ -72,7 +72,7 @@ $familyMembers = config('global.familyMembers');
             </select>
         </div>
         <div class="form-group">
-            <label for="nameWhileAtCSULB">Name while attending CSULB if different:</label>
+            <label for="nameWhileAtCSULB">Name while attending CSULB if different from above:</label>
             <input type="text" name="nameWhileAtCSULB" id="nameWhileAtCSULB" class="form-control "  value="{{old('nameWhileAtCSULB')}}"/>
         </div>
         <div class="form-group">
@@ -224,14 +224,14 @@ $familyMembers = config('global.familyMembers');
             </div>
                 <div class="form-group form-check">
                     <input type="checkbox" name="opportunities[]" id="opportunityChkBox1" class="form-check-input" value="Sharing my expertise and being a guest speaker">
-                    <label for="opportunityChkBox1">Sharing my expertise and being a guest speaker</label>
+                    <label for="opportunityChkBox1">Sharing my expertise as a guest speaker</label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" name="opportunities[]" id="opportunityChkBox2" class="form-check-input" value="Receiving information on mentoring on Beach Nexus">
-                    <label for="opportunityChkBox2">Receiving information on mentoring on Beach Nexus</label>
+                    <input type="checkbox" name="opportunities[]" id="opportunityChkBox2" class="form-check-input" value="Mentoring a student on Beach Nexus">
+                    <label for="opportunityChkBox2">Mentoring a student on Beach Nexus</label>
                 </div>
                     <div class="form-group form-check">
-                    <label for="opportunityChkBox3"><input type="checkbox" name="opportunities[]" id="opportunityChkBox3" class="form-check-input" value="Provide Internships">Provide Internships</label>
+                    <label for="opportunityChkBox3"><input type="checkbox" name="opportunities[]" id="opportunityChkBox3" class="form-check-input" value="Providing Internships">Providing Internships</label>
                     </div>
                         <div class="form-group form-check">
                     <label for="opportunityChkBox4"><input type="checkbox" name="opportunities[]" id="opportunityChkBox4" class="form-check-input" value="Making a gift to CSULB">Making a gift to CSULB</label>
