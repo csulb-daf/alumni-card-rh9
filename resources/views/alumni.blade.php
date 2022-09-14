@@ -33,8 +33,7 @@ $familyMembers = config('global.familyMembers');
                 </ul>
             </div>
         @endif
-
-    <form method="post" action="/alumni-card/" novalidate>
+        <form method="post" action="/alumni-card/" > 
         @csrf
         <h2 id="mh1">CSULB Alumni Membership Form</h2>
         <div class="container">
@@ -206,7 +205,7 @@ $familyMembers = config('global.familyMembers');
             </div>
 
         </fieldset>
-        <fielset>
+        <fieldset>
 
             <legend>Business Information</legend>
             <div class="form-group"><label for="businessEmployer">Employer</label>
@@ -220,6 +219,10 @@ $familyMembers = config('global.familyMembers');
                 <input type="email" name="businessEmail" id="businessEmail" class="form-control " value="{{old('businessEmail')}}"></div>
             <div class="form-group"><label for="businessAddress">Business Address</label>
                 <input type="text" name="businessAddress" id="businessAddress" class="form-control " value="{{old('businessAddress')}}"></div>
+
+            <fieldset>
+                <legend class="label">Opportunities to connect and get involved at The Beach. I am interested in receiving more information on:</legend>
+
             <div class="form-group"><label for="checkBox">Opportunities to connect and get involved at The Beach. I am interested in receiving more information on:</label>
             </div>
                 <div class="form-group form-check">
@@ -237,7 +240,7 @@ $familyMembers = config('global.familyMembers');
                     <label for="opportunityChkBox4"><input type="checkbox" name="opportunities[]" id="opportunityChkBox4" class="form-check-input" value="Making a gift to CSULB">Making a gift to CSULB</label>
                 </div>
 
-        </fielset>
+        </fieldset>
             <div class="form-submit">
                 <input type="submit" class="btn btn-dark" name="sendForm" id="sendForm" value="Submit" />
             </div>
