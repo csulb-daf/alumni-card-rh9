@@ -143,12 +143,58 @@ class AlumniController extends Controller
             $alumni->save();
 
 
+            $htmlEmailTxt ='<html>
+                <head>
+                <style type="text/css" media="screen">
+                body {font-family:Arial,Helvetica, sans-serif;}
+                h1{font-size:1.25em;}
+                h2{font-size:1.15em;}
+                h3{font-size:1.05em;border-bottom:solid 1px #555555;padding:1em 1em 0 1em;}
+                p{line-height: 1.75em;font-size:.9em;}
+                .under{border-bottom:2px solid #333;}
+                </style>
+                </head>
+                <body>
+                <table role="presentation" id="email_tbl" width="650" align="left" border="0" cellpadding="0" cellspacing="0" >
+                <tr><td><p>Thank you for claiming your CSULB Alumni digital Membership card! Please save this card image or print this page to access your Membership benefits. For a full list of benefits, please visit <a href="https://www.csulb.edu/alumni/benefits">https://www.csulb.edu/alumni/benefits.</a></p>
+<p>Looking to get involved in CSULB Alumni programs? Mentor CSULB students and network with Alumni and Community members on Beach Nexus, our online social networking platform for the CSULB Community.</p>
+<p>You can also view our 49er Industry Chat video library to learn from CSULB Alumni.</p>
+<p>To make a gift to CSULB to the designation of your choosing, please visit <a href="https://www.csulb.edu/give">https://www.csulb.edu/give.</a></p>
+<p>Questions? Contact us at <a href="mailto:alumni@csulb.edu">alumni@csulb.edu</a> or 562.985.5252.</p></td></tr></table></body></html>';
+
+            $this->sendNotification('Message for Alumni', $htmlEmailTxt, 'stevecreed@gmail.com');
+
              return view('alumni-success')->with('message', 'completed')->with('alumniImageLink', $imageLink);
+
+
+
 
         }
 
     }
 
+    public function sendNotification($subject, $message, $clearanceEmail )
+    {
+
+        // Multiple recipients
+        $to = $clearanceEmail;
+
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=UTF-8';
+
+        // Additional headers
+
+        $headers[] = 'From: <CSULB-Alumni@csulb.edu>';
+
+        // Mail it
+        mail($to, $subject, $message, implode("\r\n", $headers));
+
+    }
+    public function sendEmail()
+    {
+        $mail = '
+';
+    }
     public function retrieve(Request $request)
     {
         $alumniEmail = $request->input('alumniEmail');
