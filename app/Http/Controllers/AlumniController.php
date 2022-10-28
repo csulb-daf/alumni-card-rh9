@@ -46,7 +46,7 @@ class AlumniController extends Controller
 
        preg_replace( '/[^0-9]/', '', $request->input('cellPhone') );
        preg_replace( '/[^0-9]/', '', $request->input('homePhone') );
-       preg_replace( '/[^0-9]/', '', $request->input('businessPhoneNumber') ); 
+       preg_replace( '/[^0-9]/', '', $request->input('businessPhoneNumber') );
 
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
@@ -95,7 +95,7 @@ class AlumniController extends Controller
             $xpos = ($stlen < 10 ? 440 : 350);
 
 // Print Text On Image
-            imagettftext($jpg_image, 14, 0, 140, 415, $white, $font_path, $expireText);
+            imagettftext($jpg_image, 14, 0, 140, 420, $white, $font_path, $expireText);
             imagettftext($jpg_image, 18, 0, $xpos, 390, $white, $font_path, $alumniText);
             imagettftext($jpg_image, 18, 0, $xpos, 415, $white, $degree_font_path, $degreeText);
 

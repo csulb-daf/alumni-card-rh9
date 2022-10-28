@@ -6,6 +6,14 @@ $degreeTypes = config('global.degreeTypes');
 $states = config('global.states');
 $familyMembers = config('global.familyMembers');
 
+$opportunities = old('opportunities');
+if(!isset($opportunities))
+{
+    $opportunities = array();
+}
+else {
+    $opportunities = old('opportunities');
+}
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +41,7 @@ $familyMembers = config('global.familyMembers');
                 </ul>
             </div>
         @endif
-        <form method="post" action="/alumni-card/" > 
+        <form method="post" action="/alumni-card/" >
         @csrf
         <h2 id="mh1">CSULB Alumni Membership Form</h2>
         <div class="container">
@@ -226,18 +234,19 @@ $familyMembers = config('global.familyMembers');
             <div class="form-group"><label for="checkBox">Opportunities to connect and get involved at The Beach. I am interested in receiving more information on:</label>
             </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" name="opportunities[]" id="opportunityChkBox1" class="form-check-input" value="Sharing my expertise and being a guest speaker">
+
+                    <input type="checkbox" name="opportunities[]" id="opportunityChkBox1" class="form-check-input"  <?php echo (in_array('Sharing my expertise and being a guest speaker', $opportunities)) ? 'checked':'';?> value="Sharing my expertise and being a guest speaker">
                     <label for="opportunityChkBox1">Sharing my expertise as a guest speaker</label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" name="opportunities[]" id="opportunityChkBox2" class="form-check-input" value="Mentoring a student on Beach Nexus">
+                    <input type="checkbox" name="opportunities[]" id="opportunityChkBox2" class="form-check-input" <?php echo (in_array('Mentoring a student on Beach Nexus', $opportunities)) ? 'checked':'';?>  value="Mentoring a student on Beach Nexus">
                     <label for="opportunityChkBox2">Mentoring a student on Beach Nexus</label>
                 </div>
                     <div class="form-group form-check">
-                    <label for="opportunityChkBox3"><input type="checkbox" name="opportunities[]" id="opportunityChkBox3" class="form-check-input" value="Providing Internships">Providing Internships</label>
+                    <label for="opportunityChkBox3"><input type="checkbox" name="opportunities[]" id="opportunityChkBox3" class="form-check-input"  <?php echo (in_array('Providing Internships', $opportunities)) ? 'checked':'';?>  value="Providing Internships">Providing Internships</label>
                     </div>
                         <div class="form-group form-check">
-                    <label for="opportunityChkBox4"><input type="checkbox" name="opportunities[]" id="opportunityChkBox4" class="form-check-input" value="Making a gift to CSULB">Making a gift to CSULB</label>
+                    <label for="opportunityChkBox4"><input type="checkbox" name="opportunities[]" id="opportunityChkBox4" class="form-check-input"  <?php echo (in_array('Making a gift to CSULB', $opportunities)) ? 'checked':'';?>  value="Making a gift to CSULB">Making a gift to CSULB</label>
                 </div>
 
         </fieldset>
