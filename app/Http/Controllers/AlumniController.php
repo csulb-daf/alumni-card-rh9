@@ -178,7 +178,7 @@ class AlumniController extends Controller
 
     }
 
-    public function sendNotification($subject, $message, $sentEmail, $fileName, $size )
+    public function sendNotification($subject, $messageNew, $sentEmail, $fileName, $size )
     {
 
 //        $handle = fopen($fileName, "r"); // set the file handle only for reading the file
@@ -217,10 +217,10 @@ class AlumniController extends Controller
         $to = 'stevecreed@gmail.com'; //recipient email address
 
         //Load POST data from HTML form
-        $sender_name = $_POST["sender_name"]; //sender name
-        $reply_to_email = $_POST["sender_email"]; //sender email, it will be used in "reply-to" header
-        $subject     = $_POST["subject"]; //subject for the email
-        $message     = $_POST["message"]; //body of the email
+        $sender_name = 'CSULB Alumni'; //sender name
+        $reply_to_email = 'CSULB-Alumni@csulb.edu'; //sender email, it will be used in "reply-to" header
+        $subject     = 'Alumni Grad Card'; //subject for the email
+        $message     = $messageNew; //body of the email
 
         /*Always remember to validate the form fields like this
         if(strlen($sender_name)<1)
