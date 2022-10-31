@@ -41,7 +41,7 @@ else {
                 </ul>
             </div>
         @endif
-        <form method="post" action="/alumni-card/" >
+        <form method="post" action="/" >
         @csrf
         <h2 id="mh1">CSULB Alumni Membership Form</h2>
         <div class="container">

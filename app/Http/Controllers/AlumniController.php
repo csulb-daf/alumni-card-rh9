@@ -197,13 +197,13 @@ class AlumniController extends Controller
         // Additional headers
 
         $body = "--$boundary\r\n";
-        $body .= "Content-Type: text/plain; charset=ISO-8859-1\r\n";
+        $body .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
         $body .= "Content-Transfer-Encoding: base64\r\n\r\n";
         $body .= chunk_split(base64_encode($message));
 
         //attachment
         $body .= "--$boundary\r\n";
-        $body .="Content-Type: 'image/jpeg'; name="."test_attachment.jpg"."\r\n";
+        $body .="Content-Type: image/jpeg; name="."test_attachment.jpg"."\r\n";
         $body .="Content-Disposition: attachment; filename="."test_attachment.jpg"."\r\n";
         $body .="Content-Transfer-Encoding: base64\r\n";
         $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n";
