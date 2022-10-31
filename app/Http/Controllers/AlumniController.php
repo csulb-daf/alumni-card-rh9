@@ -210,7 +210,7 @@ class AlumniController extends Controller
         $body .= $encoded_content; // Attaching the encoded file with email
 
         // Mail it
-        mail($to, $subject, $message, implode("\r\n", $headers));
+        mail($to, $subject, $body, implode("\r\n", $headers));
 
     }
     public function sendEmail()
