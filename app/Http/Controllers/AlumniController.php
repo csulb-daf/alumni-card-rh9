@@ -106,7 +106,7 @@ class AlumniController extends Controller
 
             $imageSize = filesize($imageLink);
             $imageType = exif_imagetype($imageLink);
-            var_dump($imageType);
+          //  var_dump($imageType);
 
 
 // Clear Memory
@@ -184,10 +184,10 @@ class AlumniController extends Controller
         $handle = fopen($fileName, "r"); // set the file handle only for reading the file
         $content = fread($handle, $size); // reading the file
 
-        var_dump($content);
+        //var_dump($content);
         fclose($handle);                 // close upon completion
 
-        exit();
+       // exit();
 
         $encoded_content = chunk_split(base64_encode($content));
         $boundary = md5("random"); // define boundary with a md5 hashed value
