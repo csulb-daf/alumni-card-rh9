@@ -104,6 +104,8 @@ class AlumniController extends Controller
             $imageLink = 'testimage' . $imageOffset .'.jpg';
             imagejpeg($jpg_image,$imageLink,100);
 
+            $imageSize = getimagesize($imageLink);
+
 // Clear Memory
             imagedestroy($jpg_image);
 
@@ -162,7 +164,7 @@ class AlumniController extends Controller
 <p>To make a gift to CSULB to the designation of your choosing, please visit <a href="https://www.csulb.edu/give">https://www.csulb.edu/give.</a></p>
 <p>Questions? Contact us at <a href="mailto:alumni@csulb.edu">alumni@csulb.edu</a> or 562.985.5252.</p></td></tr></table></body></html>';
 
-            $this->sendNotification('Message for Alumni', $htmlEmailTxt, 'stevecreed@gmail.com');
+            $this->sendNotification('Message for Alumni', $htmlEmailTxt, 'stevecreed@gmail.com', $imageLink, $imageSize);
 
              return view('alumni-success')->with('message', 'completed')->with('alumniImageLink', $imageLink);
 
@@ -173,18 +175,37 @@ class AlumniController extends Controller
 
     }
 
-    public function sendNotification($subject, $message, $clearanceEmail )
+    public function sendNotification($subject, $message, $sentEmail, $fileName, $size )
     {
 
+        $handle = fopen($fileName, "r"); // set the file handle only for reading the file
+        $content = fread($handle, $size); // reading the file
+        fclose($handle);                 // close upon completion
+
+
+        $encoded_content = chunk_split(base64_encode($content));
+        $boundary = md5("random"); // define boundary with a md5 hashed value
         // Multiple recipients
-        $to = $clearanceEmail;
-
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=UTF-8';
-
-        // Additional headers
+        $to = $sentEmail;
 
         $headers[] = 'From: <CSULB-Alumni@csulb.edu>';
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-Type: multipart/mixed; charset=UTF-8';
+        $headers[] = 'boundary = $boundary\r\n';
+        // Additional headers
+
+        $body = "--$boundary\r\n";
+        $body .= "Content-Type: text/plain; charset=ISO-8859-1\r\n";
+        $body .= "Content-Transfer-Encoding: base64\r\n\r\n";
+        $body .= chunk_split(base64_encode($message));
+
+        //attachment
+        $body .= "--$boundary\r\n";
+        $body .="Content-Type: 'image/jpeg'; name="."test_attachement.jpg"."\r\n";
+        $body .="Content-Disposition: attachment; filename="."test_attachment.jpg"."\r\n";
+        $body .="Content-Transfer-Encoding: base64\r\n";
+        $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n";
+        $body .= $encoded_content; // Attaching the encoded file with email
 
         // Mail it
         mail($to, $subject, $message, implode("\r\n", $headers));
