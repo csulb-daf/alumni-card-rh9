@@ -106,6 +106,9 @@ class AlumniController extends Controller
 
             $imageSize = getimagesize($imageLink);
 
+            var_dump($imageSize);
+            exit();
+
 // Clear Memory
             imagedestroy($jpg_image);
 
