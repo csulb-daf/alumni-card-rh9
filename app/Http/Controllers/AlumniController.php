@@ -196,7 +196,7 @@ class AlumniController extends Controller
 
         $headers[] = 'From: <CSULB-Alumni@csulb.edu>';
         $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-Type: multipart/mixed; charset=UTF-8';
+        $headers[] = 'Content-Type: multipart/mixed;';
         $headers[] = 'boundary = $boundary\r\n';
         // Additional headers
 
@@ -207,7 +207,7 @@ class AlumniController extends Controller
 
         //attachment
         $body .= "--$boundary\r\n";
-        $body .="Content-Type: image/jpeg; name=".$fileName."\r\n";
+        $body .="Content-Type: application/octet-stream; name=".$fileName."\r\n";
         $body .="Content-Disposition: attachment; filename=".$fileName."\r\n";
         $body .="Content-Transfer-Encoding: base64\r\n";
         $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n";
