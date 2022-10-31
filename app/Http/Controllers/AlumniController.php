@@ -270,7 +270,7 @@ class AlumniController extends Controller
         $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n";
         $body .= $encoded_content; // Attaching the encoded file with email
         // Mail it
-        mail($to, $subject, $body, implode("\r\n", $headers));
+        mail($to, $subject, $body,  $headers);
 
     }
     public function sendEmail()
