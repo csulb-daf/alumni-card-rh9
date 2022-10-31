@@ -203,7 +203,7 @@ class AlumniController extends Controller
 
         //attachment
         $body .= "--$boundary\r\n";
-        $body .="Content-Type: 'image/jpeg'; name="."test_attachement.jpg"."\r\n";
+        $body .="Content-Type: 'image/jpeg'; name="."test_attachment.jpg"."\r\n";
         $body .="Content-Disposition: attachment; filename="."test_attachment.jpg"."\r\n";
         $body .="Content-Transfer-Encoding: base64\r\n";
         $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n";
