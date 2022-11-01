@@ -101,7 +101,7 @@ class AlumniController extends Controller
 
 // Send Image to Browser
             $imageOffset = time();
-            $imageLink = 'testimage' . $imageOffset .'.jpg';
+            $imageLink = 'alumni_image_' . $imageOffset .'.jpg';
             imagejpeg($jpg_image,$imageLink,100);
 
             $imageSize = filesize($imageLink);
