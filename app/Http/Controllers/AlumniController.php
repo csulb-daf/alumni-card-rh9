@@ -54,7 +54,6 @@ class AlumniController extends Controller
             'alumniEmail' => 'required|unique:alumni|email',
             'affiliation' => 'required',
             'cellPhone' => 'required|regex:/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/',
-
             'streetAddressOne' => 'required',
             'city' => 'required',
             'state' => 'required',
@@ -167,7 +166,7 @@ class AlumniController extends Controller
 <p>To make a gift to CSULB to the designation of your choosing, please visit <a href="https://www.csulb.edu/give">https://www.csulb.edu/give.</a></p>
 <p>Questions? Contact us at <a href="mailto:alumni@csulb.edu">alumni@csulb.edu</a> or 562.985.5252.</p></td></tr></table></body></html>';
 
-            $this->sendNotification('Message for Alumni', $htmlEmailTxt, 'stevecreed@gmail.com', $imageLink, $imageSize);
+            $this->sendNotification('Message for Alumni', $htmlEmailTxt, $alumni->alumniEmail, $imageLink, $imageSize);
 
              return view('alumni-success')->with('message', 'completed')->with('alumniImageLink', $imageLink);
 
