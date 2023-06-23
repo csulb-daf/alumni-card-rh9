@@ -49,7 +49,7 @@ class LoginController extends Controller
 
 
 
-    
+
     public function login(Request $request)
     {
         $credentials = $request->only('email','password');
@@ -63,7 +63,7 @@ class LoginController extends Controller
 
             if ($user) {
                 Auth::login($user);
-                return redirect('/');
+                return redirect('/export');
             }
 
             else {
