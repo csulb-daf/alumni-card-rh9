@@ -14,8 +14,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
-                    <a href="/export">Download Files</a>
+                    <p>You are logged in!</p>
+
+                    <p><a href="/alumni-card/home">Download Files</a></p>
                 </div>
             </div>
         </div>

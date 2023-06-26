@@ -63,7 +63,7 @@ class LoginController extends Controller
 
             if ($user) {
                 Auth::login($user);
-                return redirect('/export');
+                return redirect('/home');
             }
 
             else {
