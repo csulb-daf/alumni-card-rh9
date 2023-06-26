@@ -31,7 +31,7 @@ class HomeController extends Controller
 
     public function export()
     {
-        $dataTimestamp = date('m/d/Y');
+        $dataTimestamp = date('m_d_Y');
 
         return Excel::download(new AlumniExport, 'alumni export ' . $dataTimestamp .'.xlsx');
 
