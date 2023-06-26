@@ -66,7 +66,7 @@ class HomeController extends Controller
             'Alumni Created Date',
             'Alumni Updated Link'
             ];
-        return Excel::download(new AlumniExport, 'alumni.xlsx',null, null, $headers);
+        return Excel::download(new AlumniExport, 'alumni.xlsx',null,  $headers);
 
 
     }
