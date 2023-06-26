@@ -16,7 +16,7 @@
 
                     <p>You are logged in!</p>
 
-                    <p><a href="/alumni-card/home">Download Files</a></p>
+                    <p><a href="/alumni-card/export">Download Files</a></p>
                 </div>
             </div>
         </div>
