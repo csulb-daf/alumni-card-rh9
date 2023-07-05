@@ -213,7 +213,7 @@ class AlumniController extends Controller
 //        $body .= $encoded_content; // Attaching the encoded file with email
 
         $from_email         = 'csulb-alumni@csulb.edu'; //from mail, sender email address
-        $to = 'stevecreed@gmail.com'; //recipient email address
+        $to =  $sentEmail; //'stevecreed@gmail.com'; //recipient email address
 
         //Load POST data from HTML form
         $sender_name = 'CSULB Alumni'; //sender name
