@@ -161,9 +161,7 @@ class AlumniController extends Controller
                 <body>
                 <table role="presentation" id="email_tbl" width="650" align="left" border="0" cellpadding="0" cellspacing="0" >
                 <tr><td><p>Thank you for claiming your CSULB Alumni digital Membership card! Please save this card image or print this page to access your Membership benefits. For a full list of benefits, please visit <a href="https://www.csulb.edu/alumni/benefits">https://www.csulb.edu/alumni/benefits.</a></p>
-<p>Looking to get involved in CSULB Alumni programs? Mentor CSULB students and network with Alumni and Community members on Beach Nexus, our online social networking platform for the CSULB Community.</p>
-<p>You can also view our 49er Industry Chat video library to learn from CSULB Alumni.</p>
-<p>To make a gift to CSULB to the designation of your choosing, please visit <a href="https://www.csulb.edu/give">https://www.csulb.edu/give.</a></p>
+<p>Looking to get involved in CSULB Alumni programs? Mentor CSULB students and network with Alumni and Community members on <a href="https://beachnexus.peoplegrove.com/v2/">Beach Nexus</a>, our online social networking platform for the CSULB Community. You can also view our 49er Industry Chat <a href="https://www.youtube.com/playlist?list=PLC-sCO7Agl8ILjydeVA5_WZExRdzn2xbG">video library</a> to learn from CSULB Alumni. To volunteer for an upcoming event or opportunity, <a href="https://csulbalumni.galaxydigital.com/">create your Alumni volunteer profile</a>. To make a gift to CSULB to the designation of your choosing, please visit <a href="https://www.csulb.edu/give">www.csulb.edu/give</a>.</p>
 <p>Questions? Contact us at <a href="mailto:alumni@csulb.edu">alumni@csulb.edu</a> or 562.985.5252.</p></td></tr></table></body></html>';
 
             $this->sendNotification('Message for Alumni', $htmlEmailTxt, $alumni->alumniEmail, $imageLink, $imageSize);
@@ -218,7 +216,7 @@ class AlumniController extends Controller
         //Load POST data from HTML form
         $sender_name = 'CSULB Alumni'; //sender name
         $reply_to_email = 'CSULB-Alumni@csulb.edu'; //sender email, it will be used in "reply-to" header
-        $subject     = 'Alumni Grad Card'; //subject for the email
+        $subject     = 'CSULB Alumni Membership Card'; //subject for the email
         $message     = $messageNew; //body of the email
 
         /*Always remember to validate the form fields like this
