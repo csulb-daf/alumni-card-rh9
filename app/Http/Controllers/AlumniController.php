@@ -210,12 +210,12 @@ class AlumniController extends Controller
 //        $body .="X-Attachment-Id: ".rand(1000, 99999)."\r\n\r\n";
 //        $body .= $encoded_content; // Attaching the encoded file with email
 
-        $from_email         = 'csulb-alumni@csulb.edu'; //from mail, sender email address
+        $from_email         = 'alumni@csulb.edu'; //from mail, sender email address
         $to =  $sentEmail; //'stevecreed@gmail.com'; //recipient email address
 
         //Load POST data from HTML form
         $sender_name = 'CSULB Alumni'; //sender name
-        $reply_to_email = 'CSULB-Alumni@csulb.edu'; //sender email, it will be used in "reply-to" header
+        $reply_to_email = 'alumni@csulb.edu'; //sender email, it will be used in "reply-to" header
         $subject     = 'CSULB Alumni Membership Card'; //subject for the email
         $message     = $messageNew; //body of the email
 
