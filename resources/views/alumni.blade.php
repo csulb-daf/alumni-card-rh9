@@ -45,7 +45,7 @@ else {
         @csrf
         <h2 id="mh1">CSULB Alumni Membership Form</h2>
         <div class="container">
-            <p>In our effort to create an inclusive program, as of January 2022 all graduates are now CSULB Alumni Members. We created this simple form for you to claim your membership card. Your membership card can be used to access CSULB Alumni benefits, connecting you further with your alma mater and fellow 49ers. </p>
+            <p>In our effort to create an inclusive program, as of August 2023 all graduates are now CSULB Alumni Members. We created this simple form for you to claim your membership card. Your membership card can be used to access CSULB Alumni benefits, connecting you further with your alma mater and fellow 49ers.  Friends of the CSULB Community are also eligible to claim your CSULB Alumni Membership card. </p>
             <span>* Required Fields</span>
         </div>
 
