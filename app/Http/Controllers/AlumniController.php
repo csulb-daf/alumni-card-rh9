@@ -47,7 +47,7 @@ class AlumniController extends Controller
        preg_replace( '/[^0-9]/', '', $request->input('cellPhone') );
        preg_replace( '/[^0-9]/', '', $request->input('homePhone') );
        preg_replace( '/[^0-9]/', '', $request->input('businessPhoneNumber') );
-
+//
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
             'lastName' => 'required',
@@ -78,6 +78,7 @@ class AlumniController extends Controller
 
 // Allocate A Color For The Text
             $white = imagecolorallocate($jpg_image, 255, 255, 255);
+            $gray= imagecolorallocate($jpg_image, 219, 219, 219);
 
 // Set Path to Font File
             $font_path = base_path(). '/public/Kanit-Bold.ttf';
@@ -91,10 +92,10 @@ class AlumniController extends Controller
             $expireText = 'Exp. ' . date('m') .'/' . $expireYear;
             $degreeText = $degree. " ".$dyear;
             $stlen = strlen($alumniText);
-            $xpos = ($stlen < 10 ? 440 : 350);
+            $xpos = ($stlen < 10 ? 425 :335);
 
 // Print Text On Image
-            imagettftext($jpg_image, 14, 0, 140, 420, $white, $font_path, $expireText);
+            imagettftext($jpg_image, 9, 0, 140, 400, $gray, $font_path, $expireText);
             imagettftext($jpg_image, 18, 0, $xpos, 390, $white, $font_path, $alumniText);
             imagettftext($jpg_image, 18, 0, $xpos, 415, $white, $degree_font_path, $degreeText);
 
