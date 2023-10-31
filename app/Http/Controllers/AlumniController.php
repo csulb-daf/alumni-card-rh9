@@ -168,9 +168,10 @@ class AlumniController extends Controller
 <p>Please be sure to keep CSULB updated with your news, successes, and <a href="https://www.csulb.edu/alumni/form/update-your-information">contact information</a> (especially important so that you can stay up-to-date on the many exciting happenings at The Beach).</p>
 <p>If you\'d like to make a gift to CSULB at this time to the designation of your choosing, please visit <a href="https://www.csulb.edu/give">www.csulb.edu/give.</a></p>
 <p>If you have any questions, please contact us at <a href="mailto:alumni@csulb.edug">alumni@csulb.edu</a> or 562.985.5252.</p>
+<p>To volunteer for an upcoming event or opportunity, <a href="https://csulbalumni.galaxydigital.com/" title="Create you Volunteer profile">create your Alumni volunteer profile.</a></p>
 <p>With Beach Pride,</p>
 <p>Ilana Tel-Oren, \'11</p>
-<p>Alumni Outreach Specialist</p>
+<p>Alumni Engagement Associate</p>
 </td></tr></table></body></html>';
 
             $this->sendNotification('Message for Alumni', $htmlEmailTxt, $alumni->alumniEmail, $imageLink, $imageSize);

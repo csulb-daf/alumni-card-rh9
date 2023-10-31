@@ -4,9 +4,10 @@
     padding:2em;
 }
 .banner {
-    background-image: url("../img/banner_alumni.jpg");
+    background-image: url("../img/Alumni_banners_peach.jpg");
     background-size: cover;
-    height:400px;
+    /*height:400px;*/
+    height: 494px;
 }
 
 
