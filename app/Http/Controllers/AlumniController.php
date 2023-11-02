@@ -166,9 +166,10 @@ class AlumniController extends Controller
  <p>Please save this card image or print this page to access your <a href="https://www.csulb.edu/alumni/benefits">Membership benefits.</a></p>
 <p>Looking to get involved in CSULB Alumni programs? Mentor CSULB students and network with Alumni and Community members on <a href="https://beachnexus.peoplegrove.com/v2/">Beach Nexus</a>, our online social networking platform for the CSULB Community. You can also view our 49er Industry Chat <a href="https://www.youtube.com/playlist?list=PLC-sCO7Agl8ILjydeVA5_WZExRdzn2xbG">video library</a> to learn from CSULB Alumni.</p>
 <p>Please be sure to keep CSULB updated with your news, successes, and <a href="https://www.csulb.edu/alumni/form/update-your-information">contact information</a> (especially important so that you can stay up-to-date on the many exciting happenings at The Beach).</p>
+<p>To volunteer for an upcoming event or opportunity, <a href="https://csulbalumni.galaxydigital.com/" title="Create you Volunteer profile">create your Alumni volunteer profile.</a></p>
 <p>If you\'d like to make a gift to CSULB at this time to the designation of your choosing, please visit <a href="https://www.csulb.edu/give">www.csulb.edu/give.</a></p>
 <p>If you have any questions, please contact us at <a href="mailto:alumni@csulb.edug">alumni@csulb.edu</a> or 562.985.5252.</p>
-<p>To volunteer for an upcoming event or opportunity, <a href="https://csulbalumni.galaxydigital.com/" title="Create you Volunteer profile">create your Alumni volunteer profile.</a></p>
+
 <p>With Beach Pride,</p>
 <p>Ilana Tel-Oren, \'11</p>
 <p>Alumni Engagement Associate</p>
