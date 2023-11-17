@@ -30,7 +30,7 @@ else {
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 <body>
-<div class="banner"><!--<h1 id="toptext"> Alumni Membership</h1>--></div>
+<div class="banner"><h1 id="toptext"> Alumni Membership</h1></div>
     <div class="container" id="alumniForm">
         @if ($errors->any())
             <div class="alert alert-danger ">
