@@ -57,7 +57,7 @@ class AlumniController extends Controller
             'streetAddressOne' => 'required',
             'city' => 'required',
             'state' => 'required',
-            'zip' => 'required|integer|digits:5',
+            'zip' => 'required',
         ], $messages );
 
 /*   'homePhone' =>'digits:10',

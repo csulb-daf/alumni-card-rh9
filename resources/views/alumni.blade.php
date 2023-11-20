@@ -191,7 +191,7 @@ else {
                 </select>
             </div>
             <div class="form-group">
-                <label for="zip">*Zip</label>
+                <label for="zip">*Zip/Country Code</label>
             <input type="text" name="zip" id="zip" class="form-control " value="{{old('zip')}}" required />
             </div>
             <div class="form-group">
