@@ -28,7 +28,10 @@ return [
         'MSW'
     ],
     'familyMembers' =>['N/A','Child', 'Parent', 'Spouse', 'Relative'],
-    'states' => ['AL' => 'Alabama',
+    'states' => [
+
+        'NA' => 'N/A',
+        'AL' => 'Alabama',
         'AK' => 'Alaska',
         'AZ' => 'Arizona',
         'AR' => 'Arkansas',
