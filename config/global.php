@@ -29,7 +29,6 @@ return [
     ],
     'familyMembers' =>['N/A','Child', 'Parent', 'Spouse', 'Relative'],
     'states' => [
-
         'NA' => 'N/A',
         'AL' => 'Alabama',
         'AK' => 'Alaska',
