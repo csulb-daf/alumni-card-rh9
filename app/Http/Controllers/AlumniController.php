@@ -122,6 +122,10 @@ class AlumniController extends Controller
             $alumni->gradYear = $request->input('gradYear');
             $alumni->degreeType = $request->input('degreeType');
             $alumni->major = $request->input('major');
+            $alumni->degreeType2 = $request->input('degreeType2');
+            $alumni->major2 = $request->input('major2');
+            $alumni->degreeType2 = $request->input('degreeType2');
+            $alumni->major = $request->input('major2');
             $alumni->beachFamilyMember = $request->input('familyMember');
             $alumni->beachName = $request->input('names');
             $alumni->homePhone = $request->input('homePhone');
@@ -141,7 +145,6 @@ class AlumniController extends Controller
             $alumni->businessPhoneNumber = $request->input('businessPhoneNumber');
             $alumni->businessEmail = $request->input('businessEmail');
             $alumni->businessAddress = $request->input('businessAddress');
-
             $alumni->digitalCardLink = $imageLink;
             $alumni->opportunities = $opportun;
             $alumni->membershipToken = rand(0,100000);
@@ -177,7 +180,7 @@ class AlumniController extends Controller
 
             $this->sendNotification('Message for Alumni', $htmlEmailTxt, $alumni->alumniEmail, $imageLink, $imageSize);
 
-             return view('alumni-success')->with('message', 'completed')->with('alumniImageLink', $imageLink);
+             return view('/alumni-success')->with('message', 'completed')->with('alumniImageLink', $imageLink);
 
 
 
