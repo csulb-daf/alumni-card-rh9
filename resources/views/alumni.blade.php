@@ -127,6 +127,25 @@ else {
             <input type="text" name="major" id="major" class="form-control " value="{{old('major')}}">
         </div>
         <div class="form-group">
+                <label for="degreeType">Second Degree Type (if applicable)</label>
+                <select name="degreeType2" id="degreeType2" class="form-control ">
+                    <option value="" selected></option>
+                    @isset($degreeTypes)
+                        @foreach ($degreeTypes as $dt)
+                            @if(old('degreeType2') == $dt)
+                                <option value="{{$dt}}" selected>{{$dt}}</option>
+                            @else
+                                <option value="{{$dt}}">{{$dt}}</option>
+                            @endif
+                        @endforeach
+                    @endisset
+                </select>
+            </div>
+        <div class="form-group">
+            <label for="major">Second Degree Major (if applicable)</label>
+            <input type="text" name="major2" id="major2" class="form-control " value="{{old('major2')}}">
+        </div>
+        <div class="form-group">
             <label for="familyMember">Beach Family members</label>
             <select name="familyMember" id="familyMember" class="form-control " required>
                 @isset($familyMembers)
