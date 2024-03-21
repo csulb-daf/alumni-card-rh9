@@ -124,8 +124,6 @@ class AlumniController extends Controller
             $alumni->major = $request->input('major');
             $alumni->degreeType2 = $request->input('degreeType2');
             $alumni->major2 = $request->input('major2');
-            $alumni->degreeType2 = $request->input('degreeType2');
-            $alumni->major = $request->input('major2');
             $alumni->beachFamilyMember = $request->input('familyMember');
             $alumni->beachName = $request->input('names');
             $alumni->homePhone = $request->input('homePhone');
