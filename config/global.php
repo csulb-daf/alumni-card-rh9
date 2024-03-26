@@ -9,6 +9,7 @@ return [
         'BED',
         'BFA',
         'BM',
+        'BN',
         'BS',
         'CE',
         'CERT',
@@ -25,6 +26,7 @@ return [
         'MPH',
         'MPT',
         'MS',
+        'MSN',
         'MSW'
     ],
     'familyMembers' =>['N/A','Child', 'Parent', 'Spouse', 'Relative'],
