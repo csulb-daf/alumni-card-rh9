@@ -14,7 +14,6 @@
         "laravel/ui": "^3.0",
         "maatwebsite/excel": "^3.1",
         "ext-ldap": "*",
-        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1"
     },
     "require-dev": {
