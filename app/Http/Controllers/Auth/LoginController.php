@@ -3,17 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\MessageBag;
-
-
-use App\Providers\RouteServiceProvider;
-use Symfony\Component\Console\Input\Input;
-
 
 class LoginController extends Controller
 {
@@ -47,36 +43,32 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-
-
-
     public function login(Request $request)
     {
-        $credentials = $request->only('email','password');
+        $credentials = $request->only('email', 'password');
 
-        $success = $this->verify($credentials['email'],$credentials['password']);
+        $success = $this->verify($credentials['email'], $credentials['password']);
 
-        if($success)
-        {
+        if ($success) {
             $eml = $credentials['email'];
             $user = User::where('email', '=', $eml)->first();
 
             if ($user) {
                 Auth::login($user);
-                return redirect('/home');
-            }
 
-            else {
+                return redirect('/home');
+            } else {
                 session()->flash('msg', 'You are not authorized to access this application.');
+
                 return redirect()->back();
-                //return Redirect::back()->withErrors(['msg', 'You are not authorized to access this application.']);
+                // return Redirect::back()->withErrors(['msg', 'You are not authorized to access this application.']);
             }
-        }
-        else {
-            //$errors = new MessageBag(['password' => ['Email and/or password invalid.']]);
+        } else {
+            // $errors = new MessageBag(['password' => ['Email and/or password invalid.']]);
             $errors = new MessageBag;
-            $errors->add ('password', 'Invalid email or password.');
-            $errors->add('email','Invalid email or password');
+            $errors->add('password', 'Invalid email or password.');
+            $errors->add('email', 'Invalid email or password');
+
             return Redirect::back()->withErrors($errors)->withInput($request->except('password'));
         }
     }
@@ -85,7 +77,7 @@ class LoginController extends Controller
     {
         $host = env('ADLDS_HOST');
         $ldapport = env('ADLDS_PORT');
-        $connection = @ldap_connect($host,$ldapport);
+        $connection = @ldap_connect($host, $ldapport);
         $success = false;
 
         if ($connection) {
@@ -99,6 +91,7 @@ class LoginController extends Controller
                 ldap_close($connection);
             }
         }
+
         return $success;
     }
 }
