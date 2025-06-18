@@ -2,8 +2,8 @@
 
 return [
 
-    'pronouns' => ['No response', 'He/Him/His','She/Her/Hers','They/Them/Theirs'],
-    'affiliations' =>['Alumni', 'Student', 'Community Member'],
+    'pronouns' => ['No response', 'He/Him/His', 'She/Her/Hers', 'They/Them/Theirs'],
+    'affiliations' => ['Alumni', 'Student', 'Community Member'],
     'degreeTypes' => [
         'BA',
         'BED',
@@ -27,9 +27,9 @@ return [
         'MPT',
         'MS',
         'MSN',
-        'MSW'
+        'MSW',
     ],
-    'familyMembers' =>['N/A','Child', 'Parent', 'Spouse', 'Relative'],
+    'familyMembers' => ['N/A', 'Child', 'Parent', 'Spouse', 'Relative'],
     'states' => [
         'NA' => 'N/A',
         'AL' => 'Alabama',
@@ -82,7 +82,7 @@ return [
         'WA' => 'Washington',
         'WV' => 'West Virginia',
         'WI' => 'Wisconsin',
-        'WY' => 'Wyoming']
+        'WY' => 'Wyoming'],
 ];
 
 ?>

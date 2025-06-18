@@ -13,7 +13,7 @@
 
 Route::resource('/', 'AlumniController');
 
-Route::get('/retrieve', function(){
+Route::get('/retrieve', function () {
     return view('alumni-retrieve');
 });
 

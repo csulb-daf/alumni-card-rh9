@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\AlumniExport;
-use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-
 
 class HomeController extends Controller
 {
@@ -33,8 +31,7 @@ class HomeController extends Controller
     {
         $dataTimestamp = date('m_d_Y');
 
-        return Excel::download(new AlumniExport, 'alumni export ' . $dataTimestamp .'.xlsx');
-
+        return Excel::download(new AlumniExport, 'alumni export '.$dataTimestamp.'.xlsx');
 
     }
 }
