@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,13 +15,13 @@
 |
 */
 
-Route::resource('/', 'AlumniController');
+Route::resource('/', AlumniController::class);
 
 Route::get('/retrieve', function () {
     return view('alumni-retrieve');
 });
 
-Route::post('/retrieve', 'AlumniController@retrieve');
+Route::post('/retrieve', [AlumniController::class, 'retrieve']);
 Route::get('/alumni', function () {
 
     return view('alumni-success');
@@ -25,5 +29,5 @@ Route::get('/alumni', function () {
 });
 
 Auth::routes(['register' => false]);
-Route::get('/export', 'HomeController@export');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/export', [HomeController::class, 'export']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
