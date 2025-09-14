@@ -3,19 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Exports\AlumniExport;
+use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 
-class HomeController extends Controller
+class HomeController extends Controller implements HasMiddleware
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public static function middleware(): array
     {
-        $this->middleware('auth');
+        return [
+            'auth',
+        ];
     }
 
     /**
