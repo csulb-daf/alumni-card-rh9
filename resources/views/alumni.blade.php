@@ -9,7 +9,7 @@ $familyMembers = config('global.familyMembers');
 $opportunities = old('opportunities');
 if(!isset($opportunities))
 {
-    $opportunities = array();
+    $opportunities = [];
 }
 else {
     $opportunities = old('opportunities');
