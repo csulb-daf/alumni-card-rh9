@@ -13,7 +13,7 @@ class Alumni extends Model
     protected function casts(): array
     {
         return [
-            'zip' => 'string'
+            'zip' => 'string',
         ];
     }
 }
