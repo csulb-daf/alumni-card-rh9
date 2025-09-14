@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
 use App\Exports\AlumniExport;
+use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
