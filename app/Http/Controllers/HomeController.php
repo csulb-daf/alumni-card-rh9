@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controllers\HasMiddleware;
-use Illuminate\Routing\Controllers\Middleware;
 use App\Exports\AlumniExport;
+use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 
